@@ -14,13 +14,13 @@ Click the link below to see copyrights and licenses.
 1. Unzip the AvantZoom-master file into your Omeka installation's plugin directory.
 1. Rename the folder to AvantZoom.
 1. Activate the plugin from the Admin → Settings → Plugins page.
-1. Add `zoom` folder to your Omeka installation's `files` folder.
-1. Copy the `images` folder from the AvantZoom folder to the `files/zoom` folder. This folder contains icon files used
-by the OpenSeadragon viewer for the zoom in, zoom out, home, and full screen controls. AvantZoom does not use this folder.
+1. Add a `zoom` folder to your Omeka installation's `files` folder.
+1. Copy the `images` folder from the AvantZoom folder to the `files/zoom` folder. The folder contains icon used
+by the OpenSeadragon viewer for the zoom in, zoom out, and other controls. AvantZoom does not use this folder.
 1. Edit your theme's `show.php` file as explained below.
 
 
-##### Edit show.php
+#### Edit show.php
 
 The AvantZoom plugin provides everything you need to start using OpenSeadragon, but you must edit your theme's
 `show.php` file to insert code at both the top and the bottom of the file. This code adds the OpenSeadragon viewer to the Show
@@ -37,8 +37,9 @@ First edit the code at the top of `show.php` by replacing the first four lines i
 <div id="primary">
     <?php if ((get_theme_option('Item FileGallery') == 0) && metadata('item', 'has files')): ?>
 ```
-... with the lines that follow. Notte the insertion of `!$zoom &&` in the last line. That condition determines
-whether to display the OpenSeadragon viewer instead of a non-zoomable image.
+... with the lines that follow. Note the insertion of `!$zoom &&` in the last line. This condition determines
+whether or not to display the OpenSeadragon viewer. When `$zoom` is false, the item's image is not zoomable in which
+case, the orgiginal HTML is rendered to display the image in the usual (non-zoomable) manner.
 ```
 <?php
 $zoomScript = ImageZoom::generateOpenSeadragonViewer($item);
