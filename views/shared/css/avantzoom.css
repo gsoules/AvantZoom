@@ -10,11 +10,11 @@
     clear: both;
 }
 
-#zoom-button {
+#zoom-toggle-link {
     float: right;
 }
 
-#zoom-button-bar {
+#zoom-toggle {
     font-size: 14px;
     padding-left: 8px;
     height: 16px;
