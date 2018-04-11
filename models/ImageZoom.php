@@ -58,7 +58,7 @@ class ImageZoom
     {
         $dependentPluginsActive = plugin_is_active('AvantZoom');
 
-        $identifier = ItemView::getItemIdentifier($item);
+        $identifier =  $metadata = metadata($item, array('Dublin Core', 'Identifier'), array('no_filter' => true));
         $zoomDataSources = array();
 
         if (count($item->Files) >= 1 && $dependentPluginsActive)
@@ -66,22 +66,10 @@ class ImageZoom
             $zoomDataSources = self::getZoomDataSources($identifier);
         }
 
+        $viewerScript = '';
         if (count($zoomDataSources) >= 1)
         {
-            queue_js_file('openseadragon.min');
-        }
-        echo head(array('title' => metadata($item, array('Dublin Core', 'Title')), 'bodyclass' => 'items show'));
-
-        $type = Custom::getItemBaseType($item);
-        $class = empty($type) ? '' : " class=\"$type\"";
-        echo '<h1' . $class . '>' . metadata($item, array('Dublin Core', 'Title'), array('no_filter' => true)) . '</h1>';
-
-        $viewerScript = '';
-        $zoomingEnabled = count($zoomDataSources) >= 1;
-        if ($zoomingEnabled)
-        {
             $viewerScript = self::emitZoomScript($identifier, $zoomDataSources);
-            echo '<div id="openseadragon"></div>';
         }
         return $viewerScript;
     }
