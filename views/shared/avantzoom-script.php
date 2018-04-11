@@ -11,7 +11,7 @@ jQuery(document).ready(function ()
     // Override h1 styling when on a page having a zoomable image.
     jQuery('h1').css({'margin-bottom': '4px'});
 
-    var zoomButton = jQuery('#zoom-button');
+    var zoomToggle = jQuery('#zoom-toggle-link');
     var zoomViewerContainer = jQuery('#openseadragon');
     var itemFile = jQuery('#item-files');
     var itemFiles = jQuery('#itemfiles');
@@ -26,24 +26,24 @@ jQuery(document).ready(function ()
 
     if (showingzoomViewer)
     {
-        zoomButton.text(buttonTextHide);
+        zoomToggle.text(buttonTextHide);
         itemFile.hide();
         itemFiles.hide();
     }
     else
     {
-        zoomButton.text(buttonTextShow);
+        zoomToggle.text(buttonTextShow);
         zoomViewerContainer.hide();
     }
 
-    zoomButton.click(function(e)
+    zoomToggle.click(function(e)
     {
         e.preventDefault();
         showingzoomViewer = !showingzoomViewer;
         zoomViewerContainer.toggle();
         itemFile.toggle();
         itemFiles.toggle();
-        zoomButton.text(showingzoomViewer ? buttonTextHide : buttonTextShow);
+        zoomToggle.text(showingzoomViewer ? buttonTextHide : buttonTextShow);
     });
 });
 </script>
