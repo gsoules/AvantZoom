@@ -33,6 +33,6 @@ class AvantZoomPlugin extends Omeka_Plugin_AbstractPlugin
 
     protected function head()
     {
-        queue_css_file('avant-zoom');
+        queue_css_file('avantzoom');
     }
 }
