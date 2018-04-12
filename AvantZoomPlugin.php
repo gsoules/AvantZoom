@@ -25,7 +25,7 @@ class AvantZoomPlugin extends Omeka_Plugin_AbstractPlugin
         if (!($item instanceof Item))
             return;
 
-        $identifier = ItemView::getItemIdentifier($item);
+        $identifier = ItemMetadata::getItemIdentifier($item);
         $zoomDataDirName = ImageZoom::getZoomDataDirName($identifier);
         if (file_exists($zoomDataDirName))
         {
