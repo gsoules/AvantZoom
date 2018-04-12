@@ -4,8 +4,7 @@ class AvantZoomPlugin extends Omeka_Plugin_AbstractPlugin
 {
     protected $_hooks = array(
         'admin_head',
-        'config',
-        'config_form',
+        'after_delete_record',
         'public_head'
     );
 
@@ -17,13 +16,21 @@ class AvantZoomPlugin extends Omeka_Plugin_AbstractPlugin
         $this->head();
     }
 
-    public function hookConfig()
+    public function hookAfterDeleteRecord($args)
     {
-    }
+        $item = $args['record'];
 
-    public function hookConfigForm()
-    {
-        require dirname(__FILE__) . '/config_form.php';
+        // This code is only for Item objects, but it gets called when other kinds of records get deleted
+        // such as an item's search_text table record. Ignore those other objects.
+        if (!($item instanceof Item))
+            return;
+
+        $identifier = ItemView::getItemIdentifier($item);
+        $zoomDataDirName = ImageZoom::getZoomDataDirName($identifier);
+        if (file_exists($zoomDataDirName))
+        {
+            ImageZoom::removeDirectory($zoomDataDirName);
+        }
     }
 
     public function hookPublicHead($args)

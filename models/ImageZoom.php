@@ -132,4 +132,14 @@ class ImageZoom
 
         return $sources;
     }
+
+    public static function removeDirectory($path)
+    {
+        $files = glob($path . '/*');
+        foreach ($files as $file)
+        {
+            is_dir($file) ? self::removeDirectory($file) : unlink($file);
+        }
+        rmdir($path);
+    }
 }
