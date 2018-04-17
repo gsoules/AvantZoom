@@ -4,7 +4,7 @@ The AvantZoom plugin provides image zooming using OpenSeadragon.
 
 ## Dependencies
 AvantZoom depends on the following open source library which is included in the `views/shared/javascripts` folder.
-Click the link below to see copyrights and licenses.
+Click the link below to see it copyright and license.
 
 * [OpenSeadragon](https://openseadragon.github.io/) - An open-source, web-based viewer for high-resolution zoomable
  images, implemented in pure JavaScript, for desktop and mobile. 
