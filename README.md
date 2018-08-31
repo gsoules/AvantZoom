@@ -1,11 +1,5 @@
 # AvantZoom (plugin for Omeka Classic)
 
-#################################################
-
-> **This plugin is under development. Please wait for Release 2.0.**
-
-#################################################
-
 The AvantZoom plugin provides image zooming using OpenSeadragon.
 
 ## Dependencies
