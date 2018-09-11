@@ -80,6 +80,7 @@ accordingly.
 
 Follow these steps to make an image zoomable:
 
+1. Ensure that the item already has a non-zoomable image attached to it. An item with no image will not display its zoomable image.
 1. Use Zoomify to create a folder of tiles from an item's high resolution image.
 1. Rename the folder to be the same as the item's Identifier value.
 1. Use FTP or other mechanism to transfer the folder to your Omeka installation's `files/zoom` folder.
