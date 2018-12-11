@@ -81,8 +81,8 @@ class ImageZoom
 
     public static function getZoomDataPath($identifier)
     {
-        $currentPagePath = trim(dirname($_SERVER['SCRIPT_NAME']), '\,/');
-        return "/$currentPagePath/files/zoom/";
+        $currentPagePath = WEB_ROOT;
+        return "$currentPagePath/files/zoom/";
     }
 
     public static function getZoomDataProperties($dirName, $url)
