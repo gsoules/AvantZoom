@@ -14,7 +14,6 @@ jQuery(document).ready(function ()
     var zoomToggle = jQuery('#zoom-toggle-link');
     var zoomViewerContainer = jQuery('#openseadragon');
     var itemFile = jQuery('#item-files');
-    var itemFiles = jQuery('#itemfiles');
 
     // Don't initially show the zoomable image on mobile devices where users may want to
     // scroll the page, but do so while touching the zoom viewer which only pans the image.
@@ -28,7 +27,6 @@ jQuery(document).ready(function ()
     {
         zoomToggle.text(buttonTextHide);
         itemFile.hide();
-        itemFiles.hide();
     }
     else
     {
@@ -42,7 +40,6 @@ jQuery(document).ready(function ()
         showingzoomViewer = !showingzoomViewer;
         zoomViewerContainer.toggle();
         itemFile.toggle();
-        itemFiles.toggle();
         zoomToggle.text(showingzoomViewer ? buttonTextHide : buttonTextShow);
     });
 });
